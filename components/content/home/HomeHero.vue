@@ -30,14 +30,6 @@
           <ContentSlot :use="$slots.news" unwrap="p" />
         </span>
       </div>
-      <AppButton
-        v-if="topButtonText"
-        :label="topButtonText"
-        :to="topButtonLink"
-        size="xs"
-        variant="gray"
-        truncate
-      />
       <h1 v-if="$slots.title" class="relative max-w-2xl text-5xl font-semibold text-center sm:text-left md:text-6xl lg:text-7xl u-text-gray-900">
         <ContentSlot :use="$slots.title" unwrap="p" />
       </h1>
@@ -53,9 +45,6 @@
           truncate
           class="focus-visible:ring-2"
         />
-        <div v-if="$slots.codeCTA" class="code-cta">
-          <ContentSlot :use="$slots.codeCTA" unwrap="p" />
-        </div>
       </div>
       <HomeGemWrapper :gem-wrapper-class="'hidden sm:block absolute left-1/3 sm:left-1/3 md:left-1/2 lg:top-[-50px] lg:left-2/3'">
         <HomeGem />

@@ -2,7 +2,7 @@
   <div>
     <img
       v-if="!coverError && icon"
-      :src="icon.match(/^http(s)?:\/\//) ? icon : `https://api.nuxtjs.org/api/ipx/s_80,f_webp/gh/nuxt/modules/main/icons/${icon}`"
+      :src="icon.match(/^http(s)?:\/\//) ? icon : `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-${type}.svg`"
       :alt="alt"
       :class="iconClass"
       loading="lazy"
@@ -29,6 +29,10 @@ defineProps({
   alt: {
     type: String,
     default: 'module icon'
+  },
+  type: {
+    type: String,
+    default: 'original'
   }
 })
 

@@ -2,7 +2,7 @@
   <ul class="flex items-center justify-end gap-1 -mr-4 sm:-mr-0 sm:gap-3">
     <li>
       <AppButton
-        icon="uil:twitter"
+        icon="uil:whatsapp"
         variant="transparent"
         to="https://twitter.com/nuxt_js"
         target="_blank"

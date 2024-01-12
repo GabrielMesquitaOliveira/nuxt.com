@@ -8,7 +8,7 @@
         <ContentSlot :use="$slots.sectionTitle" unwrap="p" />
       </div>
       <h2 class="max-w-lg pb-6 sm:max-w-xl md:max-w-3xl lg:max-w-4xl u-text-gray-900" :class="titleSizeClass">
-        <ContentSlot :use="$slots.title" unwrap="p" />
+        <ContentSlot :use="$slots.title" unwrap="p  " />
       </h2>
       <p v-if="$slots.description" class="text-lg xl:text-xl 2xl:text-2xl u-text-gray-500 sm:max-w-xl md:max-w-3xl lg:max-w-4xl">
         <ContentSlot :use="$slots.description" unwrap="p" />

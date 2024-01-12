@@ -2,18 +2,12 @@
   <div class="relative mt-20" aria-hidden="true">
     <div class="overflow-hidden">
       <div v-for="(moduleList, index) in modulesList" :key="index" class="slider">
-        <div class="slide-track mb-2 sm:mb-8" :class="index === 1 ? 'animation-reverse' : 'animation'">
-          <div
-            v-for="(module, i) in modulesList[index]"
-            :key="i"
-            class="slide"
-          >
+        <div class="slide-track mb-8 sm:mb-8" :class="index === 1 ? 'animation-reverse' : 'animation'">
+          <div v-for="(module, i) in modulesList[index]" :key="i" class="slide">
             <NuxtLink
-              class="relative flex items-center justify-center bg-white dark:bg-gray-900 h-[86px] w-[86px] rounded-md ring-1 ring-gray-200 hover:ring-0 dark:ring-0 mt-1"
-              :to="`/modules/${module.name}`"
-              tabindex="-1"
-            >
-              <ModulesListItemCover :icon="`${module.name}.${module.format}`" :alt="module.name" icon-class="w-auto h-8 sm:h-12" />
+              class="relative flex items-center justify-center bg-white dark:bg-gray-900 h-[86px] w-[86px] rounded-md ring-1 ring-gray-200 hover:ring-0 dark:ring-0 mt-1">
+              <ModulesListItemCover :icon="`${module.name}`" :alt="module.name" :type="module.type"
+                icon-class="w-auto h-12 sm:h-14" />
               <div class="hidden gradient-border gradient-border-dark dark:block" />
               <div class="dark:hidden gradient-border gradient-border-light" />
             </NuxtLink>
@@ -22,11 +16,9 @@
       </div>
     </div>
     <div
-      class="absolute pointer-events-none top-0 left-0 h-full w-[20px] sm:w-[50px] md:w-[100px] lg:w-[100px] bg-gradient-to-r from-white via-white dark:from-black to-transparent z-[1]"
-    />
+      class="absolute pointer-events-none top-0 left-0 h-full w-[20px] sm:w-[50px] md:w-[100px] lg:w-[100px] bg-gradient-to-r from-white via-white dark:from-black to-transparent z-[1]" />
     <div
-      class="absolute pointer-events-none top-0 right-0 h-full w-[20px] sm:w-[50px] md:w-[100px] lg:w-[100px] bg-gradient-to-l from-white via-white dark:from-black to-transparent z-[1]"
-    />
+      class="absolute pointer-events-none top-0 right-0 h-full w-[20px] sm:w-[50px] md:w-[100px] lg:w-[100px] bg-gradient-to-l from-white via-white dark:from-black to-transparent z-[1]" />
   </div>
 </template>
 
@@ -46,20 +38,38 @@ const slidesPerView = computed(() => {
 })
 
 const modulesList = computed(() => {
-  const array1: Array<{ name: string, format: string}> = [
-    { name: 'tailwindcss', format: 'png' }, { name: 'i18n', format: 'png' }, { name: 'content', format: 'png' }, { name: 'pinia', format: 'svg' },
-    { name: 'image', format: 'png' }, { name: 'vueuse', format: 'svg' }, { name: 'color-mode', format: 'png' }
-  ]
+  type Stack = { name: string; type: string };
 
-  const array2: Array<{ name: string, format: string}> = [
-    { name: 'prismic', format: 'png' }, { name: 'windicss', format: 'svg' }, { name: 'strapi', format: 'png' }, { name: 'formkit', format: 'png' },
-    { name: 'storyblok', format: 'png' }, { name: 'sanity', format: 'png' }, { name: 'icons', format: 'png' }
-  ]
+  const array1: Array<Stack> = [
+  { name: 'react', type: 'original' },
+  { name: 'vuejs', type: 'original' },
+  { name: 'angularjs', type: 'plain' },
+  { name: 'nuxtjs', type: 'original' },
+  { name: 'svelte', type: 'original' },
+  { name: 'nextjs', type: 'original' },
+  { name: 'gatsby', type: 'original' }
+];
 
-  const array3: Array<{ name: string, format: string}> = [
-    { name: 'supabase', format: 'png' }, { name: 'algolia', format: 'svg' }, { name: 'directus', format: 'svg' }, { name: 'unlighthouse', format: 'svg' },
-    { name: 'meilisearch', format: 'svg' }, { name: 'harlem', format: 'svg' }, { name: 'fontaine', format: 'png' }
-  ]
+const array2: Array<Stack> = [
+  { name: 'express', type: 'original' },
+  { name: 'django', type: 'plain' },
+  { name: 'spring', type: 'original' },
+  { name: 'laravel', type: 'plain' },
+  { name: 'nestjs', type: 'plain' },
+  { name: 'python', type: 'original' },
+  { name: 'adonisjs', type: 'original' }
+];
+
+const array3: Array<Stack> = [
+  { name: 'mysql', type: 'original' },
+  { name: 'mongodb', type: 'original' },
+  { name: 'postgresql', type: 'original' },
+  { name: 'sqlite', type: 'original' },
+  { name: 'redis', type: 'original' },
+  { name: 'couchdb', type: 'original' },
+  { name: 'firebase', type: 'plain' }
+];
+
 
   return [
     [...array1.concat(array1)],
@@ -70,19 +80,19 @@ const modulesList = computed(() => {
 </script>
 
 <style scoped lang="postcss">
-
 :root {
   --gradient-angle: 360deg;
 }
 
 @keyframes scroll {
   0% {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
+
   100% {
-  -webkit-transform: translateX(calc(-200px * v-bind(slidesPerView)));
-  transform: translateX(calc(-200px * v-bind(slidesPerView)));
+    -webkit-transform: translateX(calc(-200px * v-bind(slidesPerView)));
+    transform: translateX(calc(-200px * v-bind(slidesPerView)));
   }
 }
 
@@ -110,7 +120,8 @@ const modulesList = computed(() => {
   animation: scroll 30s linear infinite;
 }
 
-.slide-track:hover, .slide-track:hover {
+.slide-track:hover,
+.slide-track:hover {
   animation-play-state: paused;
 
   .slide {
