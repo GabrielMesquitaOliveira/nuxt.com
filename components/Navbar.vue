@@ -6,8 +6,6 @@
         hasScrolledPastNavbar,
     }"
   >
-    <NavbarDialog v-if="open" :links="links" />
-
     <div class="container">
       <nav
         id="main-nav"
@@ -33,15 +31,6 @@
               <LogoFull class="hidden w-auto h-6 sm:block" />
               <Logo class="block w-auto h-6 sm:hidden" />
             </NuxtLink>
-
-            <AppButton
-              variant="transparent"
-              size="sm"
-              icon="ph:caret-down-fill"
-              square
-              class="opacity-50 hover:opacity-80 dark:opacity-70 dark:hover:opacity-100"
-            />
-
             <template #panel>
               <ul class="flex flex-col gap-y-1 p-2 bg-gray-950 w-[180px]">
                 <li
@@ -64,21 +53,7 @@
           </AppPopover>
         </div>
         <ul class="justify-center hidden lg:col-span-4 lg:gap-x-8 xl:gap-x-10 lg:flex">
-          <li v-for="(link, index) in visibleLinks" :key="index">
-            <NuxtLink
-              :to="link._path"
-              :exact="link.exact"
-              :target="link.target"
-              class="text-sm lg:text-base link"
-              :class="{
-                'active focus-visible:ring': isActive(link),
-                'font-medium u-text-gray-600 hover:u-text-gray-900 focus:u-text-gray-900 active:shadow-inner active:font-semibold':
-                  !isActive(link),
-              }"
-            >
-              {{ link.title }}
-            </NuxtLink>
-          </li>
+
         </ul>
         <div class="flex justify-end">
           <AlgoliaDocSearch
@@ -114,10 +89,10 @@ const dropdownLinks = [
 
 const links: Ref<NavItem[]> = ref([
   {
-    title: 'Docs',
+    title: 'Home',
     icon: 'uil:book-open',
-    path: '/docs',
-    _path: '/docs'
+    path: '#home',
+    _path: '#home'
   },
   {
     title: 'Modules',

@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:pb-20 pt-12 md:pt-28">
+  <div class="sm:pb-20 pt-12 md:pt-28" id="hero">
     <img
       src="/assets/home/hero-gradient.svg"
       class="absolute top-0 right-0 hidden overflow-hidden select-none lg:block blur-lg"

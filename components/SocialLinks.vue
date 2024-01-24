@@ -4,7 +4,7 @@
       <AppButton
         icon="uil:whatsapp"
         variant="transparent"
-        to="https://twitter.com/nuxt_js"
+        to="https://wa.me/5561983536287?text=Ol%C3%A1%21+%F0%9F%91%8B+Estou+entrando+em+contato+atrav%C3%A9s+do+site+da+para+saber+mais+sobre+os+servi%C3%A7os+oferecidos"
         target="_blank"
         class="!p-0 u-text-gray-900 focus-visible:ring-2"
         title="Follow Nuxt on Twitter"
@@ -14,21 +14,9 @@
     </li>
     <li>
       <AppButton
-        icon="fa-brands:discord"
-        variant="transparent"
-        to="https://discord.com/invite/ps2h6QT"
-        target="_blank"
-        class="!p-0 u-text-gray-900 focus-visible:ring-2"
-        title="Join Nuxt community on Discord"
-      >
-        <span class="sr-only">Join Nuxt community on Discord</span>
-      </AppButton>
-    </li>
-    <li>
-      <AppButton
         icon="uil:github"
         variant="transparent"
-        to="https://github.com/nuxt/nuxt"
+        to="https://github.com/GabrielMesquitaOliveira"
         target="_blank"
         class="!p-0 u-text-gray-900 focus-visible:ring-2"
         title="Go to Nuxt Github repo"
